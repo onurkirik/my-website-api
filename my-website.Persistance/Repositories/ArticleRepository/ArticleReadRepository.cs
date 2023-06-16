@@ -21,5 +21,7 @@ namespace my_website.Persistance.Repositories.ArticleRepository
                          .Include(a => a.Category);
             return query;
         }
+
+
     }
 }

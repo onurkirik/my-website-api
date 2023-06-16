@@ -12,13 +12,11 @@ namespace my_website.API.Controllers
     {
         private readonly IArticleReadRepository _articleReadRepository;
         private readonly IArticleWriteRepository _articleWriteRepository;
-        private readonly ApplicationDbContext _context;
 
-        public ArticlesController(IArticleWriteRepository articleWriteRepository, IArticleReadRepository articleReadRepository, ApplicationDbContext context)
+        public ArticlesController(IArticleWriteRepository articleWriteRepository, IArticleReadRepository articleReadRepository)
         {
             _articleWriteRepository = articleWriteRepository;
             _articleReadRepository = articleReadRepository;
-            _context = context;
         }
 
         [HttpGet]
@@ -26,6 +24,13 @@ namespace my_website.API.Controllers
         public async Task<IActionResult> Get()
         {
             return Ok(_articleReadRepository.GetAll(false));
+        }
+
+        [HttpGet]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> Get([FromRoute] Guid id)
+        {
+            return Ok(await _articleReadRepository.GetByIdAsync(id, false));
         }
     }
 }

@@ -39,7 +39,7 @@ namespace my_website.Persistance.Repositories
                 query = Table.AsNoTracking();
             return await query.FirstOrDefaultAsync(method);
         }
-        public async Task<T> GetByIdAsync(Guid id, bool tracking)
+        public virtual async Task<T> GetByIdAsync(Guid id, bool tracking)
         {
             var query = Table.AsQueryable();
             if (!tracking)
