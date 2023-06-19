@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using my_website.Application.Repositories.ArticleRepository;
+using my_website.Domain.Entities;
 using my_website.Persistance.Context;
 
 namespace my_website.API.Controllers
@@ -28,9 +29,23 @@ namespace my_website.API.Controllers
 
         [HttpGet]
         [Route("{id:guid}")]
-        public async Task<IActionResult> Get([FromRoute] Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
             return Ok(await _articleReadRepository.GetByIdAsync(id, false));
+        }
+
+        [HttpPut]
+        [Route("update-article/{id:guid}")]
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] Article model)
+        {
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        {
+            return Ok(await _articleWriteRepository.RemoveAsync(id));
         }
     }
 }
