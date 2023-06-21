@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace my_website.Persistance.Context.Migrations
 {
     /// <inheritdoc />
@@ -66,7 +68,7 @@ namespace my_website.Persistance.Context.Migrations
                     Title = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -324,6 +326,31 @@ namespace my_website.Persistance.Context.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "Adress", "Age", "ArticleId", "BirthDate", "ConcurrencyStamp", "Email", "EmailConfirmed", "Gender", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PersonalInfo", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "Surname", "TwoFactorEnabled", "UserName" },
+                values: new object[] { new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc"), 0, "Altındağ, Ankara", 23, null, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), "ac3a6bc8-30a4-4e22-bbfb-5dc11944ea1a", "kirikonurr@gmail.com", true, 2, false, null, "Onur", "KIRIKONURR@GMAIL.COM", "ONURKIRIK", "AQAAAAIAAYagAAAAEIZjy4rh9KnIxOtle+zE6qvszc6zSYm9pLMdmb383tS0S+MMFtWe+OYyfQt3L4EGdA==", "Lorem ipsum dolor sit amet", "+905423815262", false, null, "KIRIK", false, "onurkirik" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"), "Sample Category 2" },
+                    { new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"), "Sample Category 1" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Articles",
+                columns: new[] { "Id", "CategoryId", "Content", "CreatedDate", "Title", "UpdatedDate", "UserId" },
+                values: new object[,]
+                {
+                    { new Guid("50ac383a-e034-438d-97b7-3123e27837e3"), new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"), "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4004), "Sample Article 2", null, new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc") },
+                    { new Guid("a44ce742-19c4-4c85-b8f1-8a2f35f9ceb4"), new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"), "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(3981), "Sample Article 1", null, new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc") },
+                    { new Guid("b001002c-39fb-44bf-8cfc-6f72493e160d"), new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"), "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4014), "Sample Article 4", null, new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc") },
+                    { new Guid("dd69b936-a71e-458b-a198-8e1ee07807aa"), new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"), "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4009), "Sample Article 3", null, new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc") }
                 });
 
             migrationBuilder.CreateIndex(

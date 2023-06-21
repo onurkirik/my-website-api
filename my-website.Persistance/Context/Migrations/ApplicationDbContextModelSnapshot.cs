@@ -259,7 +259,7 @@ namespace my_website.Persistance.Context.Migrations
                             Adress = "Altındağ, Ankara",
                             Age = 23,
                             BirthDate = new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "6869a072-2188-4542-86da-3dc55583521b",
+                            ConcurrencyStamp = "ac3a6bc8-30a4-4e22-bbfb-5dc11944ea1a",
                             Email = "kirikonurr@gmail.com",
                             EmailConfirmed = true,
                             Gender = 2,
@@ -267,7 +267,7 @@ namespace my_website.Persistance.Context.Migrations
                             Name = "Onur",
                             NormalizedEmail = "KIRIKONURR@GMAIL.COM",
                             NormalizedUserName = "ONURKIRIK",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBbVGWbxHlHxVvAwb+pKEeuNjPJukNiTO2rpQppb3QAmLtj2GlrbZZuV9bH4ctND9Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIZjy4rh9KnIxOtle+zE6qvszc6zSYm9pLMdmb383tS0S+MMFtWe+OYyfQt3L4EGdA==",
                             PersonalInfo = "Lorem ipsum dolor sit amet",
                             PhoneNumber = "+905423815262",
                             PhoneNumberConfirmed = false,
@@ -298,7 +298,7 @@ namespace my_website.Persistance.Context.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("UserId")
@@ -318,9 +318,8 @@ namespace my_website.Persistance.Context.Migrations
                             Id = new Guid("a44ce742-19c4-4c85-b8f1-8a2f35f9ceb4"),
                             CategoryId = new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"),
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                            CreatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9548),
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(3981),
                             Title = "Sample Article 1",
-                            UpdatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9564),
                             UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
                         },
                         new
@@ -328,9 +327,8 @@ namespace my_website.Persistance.Context.Migrations
                             Id = new Guid("50ac383a-e034-438d-97b7-3123e27837e3"),
                             CategoryId = new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"),
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                            CreatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9575),
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4004),
                             Title = "Sample Article 2",
-                            UpdatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9577),
                             UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
                         },
                         new
@@ -338,9 +336,8 @@ namespace my_website.Persistance.Context.Migrations
                             Id = new Guid("dd69b936-a71e-458b-a198-8e1ee07807aa"),
                             CategoryId = new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"),
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                            CreatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9584),
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4009),
                             Title = "Sample Article 3",
-                            UpdatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9585),
                             UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
                         },
                         new
@@ -348,9 +345,8 @@ namespace my_website.Persistance.Context.Migrations
                             Id = new Guid("b001002c-39fb-44bf-8cfc-6f72493e160d"),
                             CategoryId = new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"),
                             Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                            CreatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9591),
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4014),
                             Title = "Sample Article 4",
-                            UpdatedDate = new DateTime(2023, 6, 16, 6, 0, 35, 945, DateTimeKind.Local).AddTicks(9592),
                             UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
                         });
                 });

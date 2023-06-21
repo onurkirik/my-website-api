@@ -20,7 +20,6 @@ namespace my_website.Persistance.Seeds
                     Title = "Sample Article 1",
                     Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now,
                     UserId = Guid.Parse("8391C80B-C0F3-478D-A936-C4CF655F20CC"),
                     CategoryId = Guid.Parse("C9F12A78-5E28-497E-9988-6F32415DB2EA")
                 },
@@ -30,7 +29,6 @@ namespace my_website.Persistance.Seeds
                     Title = "Sample Article 2",
                     Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now,
                     UserId = Guid.Parse("8391C80B-C0F3-478D-A936-C4CF655F20CC"),
                     CategoryId = Guid.Parse("C9F12A78-5E28-497E-9988-6F32415DB2EA")
                 },
@@ -40,7 +38,6 @@ namespace my_website.Persistance.Seeds
                     Title = "Sample Article 3",
                     Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now,
                     UserId = Guid.Parse("8391C80B-C0F3-478D-A936-C4CF655F20CC"),
                     CategoryId = Guid.Parse("A8639731-02EF-4616-AD38-169B6A170FFB")
                 },
@@ -50,7 +47,6 @@ namespace my_website.Persistance.Seeds
                     Title = "Sample Article 4",
                     Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                     CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now,
                     UserId = Guid.Parse("8391C80B-C0F3-478D-A936-C4CF655F20CC"),
                     CategoryId = Guid.Parse("A8639731-02EF-4616-AD38-169B6A170FFB")
                 });

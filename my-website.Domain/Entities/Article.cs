@@ -12,7 +12,7 @@ namespace my_website.Domain.Entities
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
 
         //Navigation Properties
         public Guid? UserId { get; set; }

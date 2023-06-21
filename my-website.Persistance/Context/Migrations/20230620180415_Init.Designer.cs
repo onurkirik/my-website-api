@@ -12,7 +12,7 @@ using my_website.Persistance.Context;
 namespace my_website.Persistance.Context.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230616025622_Init")]
+    [Migration("20230620180415_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -253,6 +253,31 @@ namespace my_website.Persistance.Context.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc"),
+                            AccessFailedCount = 0,
+                            Adress = "Altındağ, Ankara",
+                            Age = 23,
+                            BirthDate = new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ConcurrencyStamp = "ac3a6bc8-30a4-4e22-bbfb-5dc11944ea1a",
+                            Email = "kirikonurr@gmail.com",
+                            EmailConfirmed = true,
+                            Gender = 2,
+                            LockoutEnabled = false,
+                            Name = "Onur",
+                            NormalizedEmail = "KIRIKONURR@GMAIL.COM",
+                            NormalizedUserName = "ONURKIRIK",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIZjy4rh9KnIxOtle+zE6qvszc6zSYm9pLMdmb383tS0S+MMFtWe+OYyfQt3L4EGdA==",
+                            PersonalInfo = "Lorem ipsum dolor sit amet",
+                            PhoneNumber = "+905423815262",
+                            PhoneNumberConfirmed = false,
+                            Surname = "KIRIK",
+                            TwoFactorEnabled = false,
+                            UserName = "onurkirik"
+                        });
                 });
 
             modelBuilder.Entity("my_website.Domain.Entities.Article", b =>
@@ -276,7 +301,7 @@ namespace my_website.Persistance.Context.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<DateTime>("UpdatedDate")
+                    b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("UserId")
@@ -289,6 +314,44 @@ namespace my_website.Persistance.Context.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Articles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("a44ce742-19c4-4c85-b8f1-8a2f35f9ceb4"),
+                            CategoryId = new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"),
+                            Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(3981),
+                            Title = "Sample Article 1",
+                            UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
+                        },
+                        new
+                        {
+                            Id = new Guid("50ac383a-e034-438d-97b7-3123e27837e3"),
+                            CategoryId = new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"),
+                            Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4004),
+                            Title = "Sample Article 2",
+                            UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
+                        },
+                        new
+                        {
+                            Id = new Guid("dd69b936-a71e-458b-a198-8e1ee07807aa"),
+                            CategoryId = new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"),
+                            Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4009),
+                            Title = "Sample Article 3",
+                            UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
+                        },
+                        new
+                        {
+                            Id = new Guid("b001002c-39fb-44bf-8cfc-6f72493e160d"),
+                            CategoryId = new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"),
+                            Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            CreatedDate = new DateTime(2023, 6, 20, 21, 4, 14, 909, DateTimeKind.Local).AddTicks(4014),
+                            Title = "Sample Article 4",
+                            UserId = new Guid("8391c80b-c0f3-478d-a936-c4cf655f20cc")
+                        });
                 });
 
             modelBuilder.Entity("my_website.Domain.Entities.Category", b =>
@@ -305,6 +368,18 @@ namespace my_website.Persistance.Context.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("c9f12a78-5e28-497e-9988-6f32415db2ea"),
+                            Name = "Sample Category 1"
+                        },
+                        new
+                        {
+                            Id = new Guid("a8639731-02ef-4616-ad38-169b6a170ffb"),
+                            Name = "Sample Category 2"
+                        });
                 });
 
             modelBuilder.Entity("my_website.Domain.Entities.Certificate", b =>
