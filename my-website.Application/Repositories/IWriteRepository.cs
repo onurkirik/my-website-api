@@ -14,6 +14,6 @@ namespace my_website.Application.Repositories
         bool Remove(T model);
         bool RemoveRange(List<T> models);
         Task<bool> RemoveAsync(Guid id);
-        bool Update(T model);
+        Task<bool> UpdateAsync(T model);
     }
 }

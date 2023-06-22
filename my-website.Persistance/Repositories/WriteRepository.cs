@@ -63,10 +63,10 @@ namespace my_website.Persistance.Repositories
             return true;
         }
 
-        public bool Update(T model)
+        public async Task<bool> UpdateAsync(T model)
         {
-            EntityEntry<T> entityEntry = Table.Update(model);
-            _unitOfWork.SaveChangesAsync();
+            var entityEntry = Table.Update(model);
+            await _unitOfWork.SaveChangesAsync();
 
             return entityEntry.State == EntityState.Modified;
         }

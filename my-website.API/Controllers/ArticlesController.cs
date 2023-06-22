@@ -35,10 +35,16 @@ namespace my_website.API.Controllers
         }
 
         [HttpPut]
-        [Route("update-article/{id:guid}")]
-        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] Article model)
+        [Route("update-article")]
+        public IActionResult Update([FromBody] Article model)
         {
-            return Ok();
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var updatedArticle =  _articleWriteRepository.UpdateAsync(model);
+            return Ok(updatedArticle);
         }
 
         [HttpDelete]
