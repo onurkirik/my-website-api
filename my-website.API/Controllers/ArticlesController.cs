@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using my_website.Application.DTOS.ArticlesDTOS;
 using my_website.Application.Repositories.ArticleRepository;
 using my_website.Domain.Entities;
 using my_website.Persistance.Context;
@@ -13,11 +15,13 @@ namespace my_website.API.Controllers
     {
         private readonly IArticleReadRepository _articleReadRepository;
         private readonly IArticleWriteRepository _articleWriteRepository;
+        private readonly IMapper _mapper;
 
-        public ArticlesController(IArticleWriteRepository articleWriteRepository, IArticleReadRepository articleReadRepository)
+        public ArticlesController(IArticleWriteRepository articleWriteRepository, IArticleReadRepository articleReadRepository, IMapper mapper)
         {
             _articleWriteRepository = articleWriteRepository;
             _articleReadRepository = articleReadRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -34,17 +38,23 @@ namespace my_website.API.Controllers
             return Ok(await _articleReadRepository.GetByIdAsync(id, false));
         }
 
+        [HttpPost]
+        [Route("create-article")]
+        public async Task<IActionResult> Create([FromBody] ArticleCreateDto model)
+        {
+            var entity = _mapper.Map<Article>(model);
+
+            return Ok(await _articleWriteRepository.AddAsync(entity));
+        }
+
         [HttpPut]
         [Route("update-article")]
-        public IActionResult Update([FromBody] Article model)
+        public async Task<IActionResult> Update([FromBody] ArticleUpdateDto model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            var entity = _mapper.Map<Article>(model);
 
-            var updatedArticle =  _articleWriteRepository.UpdateAsync(model);
-            return Ok(updatedArticle);
+            var isUpdate = await _articleWriteRepository.UpdateAsync(entity);
+            return Ok(isUpdate);
         }
 
         [HttpDelete]

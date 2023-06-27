@@ -35,6 +35,7 @@ namespace my_website.Persistance
             services.AddScoped<IEducationReadRepository, EducationReadRepository>();
             services.AddScoped<IEducationWriteRepository, EducationWriteRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
         }
     }
 }
