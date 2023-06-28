@@ -45,11 +45,12 @@ namespace my_website.API.Controllers
         {
             var entity = _mapper.Map<Category>(model);
 
-            return Ok(await _categoryWriteRepository.UpdateAsync(entity));
+            var isUpdated = await _categoryWriteRepository.UpdateAsync(entity);
+            return Ok(isUpdated);
         }
 
         [HttpDelete]
-        [Route("delete-category")]
+        [Route("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             return Ok(await _categoryWriteRepository.RemoveAsync(id));

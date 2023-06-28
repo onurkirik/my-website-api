@@ -10,6 +10,7 @@ namespace my_website.Application.DTOS.CategoriesDTOS
 {
     public class CategoryUpdateDto
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
     }
 
