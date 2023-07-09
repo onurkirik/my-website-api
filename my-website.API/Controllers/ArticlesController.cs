@@ -28,14 +28,16 @@ namespace my_website.API.Controllers
         [Route("get-all")]
         public async Task<IActionResult> Get()
         {
-            return Ok(_articleReadRepository.GetAll(false));
+            var data = _articleReadRepository.GetAll(false);
+            return Ok(data);
         }
 
         [HttpGet]
         [Route("{id:guid}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            return Ok(await _articleReadRepository.GetByIdAsync(id, false));
+            var data = await _articleReadRepository.GetByIdAsync(id, false);
+            return Ok(data);
         }
 
         [HttpPost]
@@ -43,8 +45,9 @@ namespace my_website.API.Controllers
         public async Task<IActionResult> Create([FromBody] ArticleCreateDto model)
         {
             var entity = _mapper.Map<Article>(model);
+            var result = await _articleWriteRepository.AddAsync(entity);
 
-            return Ok(await _articleWriteRepository.AddAsync(entity));
+            return Ok(result);
         }
 
         [HttpPut]
@@ -61,7 +64,13 @@ namespace my_website.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
-            return Ok(await _articleWriteRepository.RemoveAsync(id));
+            var result = await _articleWriteRepository.RemoveAsync(id);
+
+            return Ok(new
+            {
+                result,
+                id
+            });
         }
     }
 }

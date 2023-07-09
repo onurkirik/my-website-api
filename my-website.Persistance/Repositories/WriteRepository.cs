@@ -27,7 +27,7 @@ namespace my_website.Persistance.Repositories
         public async Task<bool> AddAsync(T model)
         {
             EntityEntry<T> entityEntry = await Table.AddAsync(model);
-            _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
 
             return entityEntry.State == EntityState.Added;
         }
@@ -35,15 +35,15 @@ namespace my_website.Persistance.Repositories
         public async Task<bool> AddRangeAsync(List<T> models)
         {
             await Table.AddRangeAsync(models);
-            _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
 
             return true;
         }
 
-        public bool Remove(T model)
+        public async Task<bool> Remove(T model)
         {
             EntityEntry<T> entityEntry = Table.Remove(model);
-            _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
 
             return entityEntry.State == EntityState.Deleted;
         }
@@ -51,14 +51,14 @@ namespace my_website.Persistance.Repositories
         public async Task<bool> RemoveAsync(Guid id)
         {
             T model = await Table.FirstOrDefaultAsync(model => model.Id == id);
-            return Remove(model);
+            return await Remove(model);
 
         }
 
-        public bool RemoveRange(List<T> models)
+        public async Task<bool> RemoveRange(List<T> models)
         {
             Table.RemoveRange(models);
-            _unitOfWork.SaveChangesAsync();
+            await _unitOfWork.SaveChangesAsync();
 
             return true;
         }

@@ -53,7 +53,13 @@ namespace my_website.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
-            return Ok(await _categoryWriteRepository.RemoveAsync(id));
+            var result = await _categoryWriteRepository.RemoveAsync(id);
+
+            return Ok(new
+            {
+                result,
+                id
+            });
         }
 
     }
