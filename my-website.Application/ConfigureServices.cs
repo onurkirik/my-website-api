@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using my_website.Application.DTOS.ArticlesDTOS;
 using my_website.Application.DTOS.CategoriesDTOS;
+using my_website.Application.DTOS.ProjectDTOS;
 
 namespace my_website.Application
 {
@@ -26,6 +27,8 @@ namespace my_website.Application
                 mc.AddProfile(new ArticleUpdateMappingProfile());
                 mc.AddProfile(new CategoryCreateMappingProfile());
                 mc.AddProfile(new CategoryUpdateMappingProfile());
+                mc.AddProfile(new ProjectCreateMappingProfile());
+                mc.AddProfile(new ProjectUpdateMappingProfile());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

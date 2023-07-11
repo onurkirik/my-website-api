@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using my_website.Application.DTOS.ProjectDTOS;
 using my_website.Application.Repositories.ProjectRepository;
+using my_website.Domain.Entities;
 
 namespace my_website.API.Controllers
 {
@@ -38,9 +40,33 @@ namespace my_website.API.Controllers
 
         [HttpPost]
         [Route("create-project")]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create([FromBody] ProjectCreateDTO model)
         {
-            
+            var entity = _mapper.Map<Project>(model);
+            var isCreated = await _projectWriteRepository.AddAsync(entity);
+            return Ok(isCreated);
+        }
+
+        [HttpPut]
+        [Route("update-project")]
+        public async Task<IActionResult> Update([FromBody] ProjectUpdateDTO model)
+        {
+            var entity = _mapper.Map<Project>(model);
+            var isUpdated = await _projectWriteRepository.UpdateAsync(entity);
+
+            return Ok(isUpdated);
+        }
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> Delete([FromBody] Guid id)
+        {
+            var result = await _projectWriteRepository.RemoveAsync(id);
+            return Ok(new
+            {
+                result,
+                id
+            });
         }
 
     }

@@ -10,6 +10,7 @@ namespace my_website.Domain.Entities
     public class Project : BaseEntity
     {
         public string Title { get; set; }
+        public string  Content { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

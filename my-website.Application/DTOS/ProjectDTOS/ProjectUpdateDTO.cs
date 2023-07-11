@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using my_website.Application.DTOS.ArticlesDTOS;
 using my_website.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace my_website.Application.DTOS.ProjectDTOS
 {
-    public class ProjectCreateDTO
+    public class ProjectUpdateDTO
     {
+        public Guid Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public DateTime StartDate { get; set; }
@@ -18,11 +18,11 @@ namespace my_website.Application.DTOS.ProjectDTOS
         public Guid UserId { get; set; }
     }
 
-    public class ProjectCreateMappingProfile : Profile
+    public class ProjectUpdateMappingProfile : Profile
     {
-        public ProjectCreateMappingProfile()
+        public ProjectUpdateMappingProfile()
         {
-            CreateMap<Project, ProjectCreateDTO>().ReverseMap();
+            CreateMap<Project, ProjectUpdateDTO>().ReverseMap();
         }
     }
 }

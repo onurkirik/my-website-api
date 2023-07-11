@@ -5,6 +5,7 @@ using my_website.Application.Repositories.ArticleRepository;
 using my_website.Application.Repositories.CategoryRepository;
 using my_website.Application.Repositories.CertificateRepository;
 using my_website.Application.Repositories.EducationRepository;
+using my_website.Application.Repositories.ProjectRepository;
 using my_website.Domain.Entities;
 using my_website.Persistance.Context;
 using my_website.Persistance.Repositories;
@@ -12,6 +13,7 @@ using my_website.Persistance.Repositories.ArticleRepository;
 using my_website.Persistance.Repositories.CategoryRepository;
 using my_website.Persistance.Repositories.CertificateRepository;
 using my_website.Persistance.Repositories.EducationRepository;
+using my_website.Persistance.Repositories.ProjectRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +36,8 @@ namespace my_website.Persistance
             services.AddScoped<ICertificateWriteRepository, CertificateWriteRepository>();
             services.AddScoped<IEducationReadRepository, EducationReadRepository>();
             services.AddScoped<IEducationWriteRepository, EducationWriteRepository>();
+            services.AddScoped<IProjectReadRepository, ProjectReadRepository>();
+            services.AddScoped<IProjectWriteRepository, ProjectWriteRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         }
