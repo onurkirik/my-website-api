@@ -14,6 +14,11 @@ using AutoMapper;
 using my_website.Application.DTOS.ArticlesDTOS;
 using my_website.Application.DTOS.CategoriesDTOS;
 using my_website.Application.DTOS.ProjectDTOS;
+using my_website.Application.DTOS.EducationDTOS;
+using my_website.Application.DTOS.SkillsDTOS;
+using my_website.Application.DTOS.CertificateDTOS;
+using my_website.Application.DTOS.SocialMediaDTOS;
+using my_website.Application.DTOS.WorkExperienceDTOS;
 
 namespace my_website.Application
 {
@@ -29,6 +34,16 @@ namespace my_website.Application
                 mc.AddProfile(new CategoryUpdateMappingProfile());
                 mc.AddProfile(new ProjectCreateMappingProfile());
                 mc.AddProfile(new ProjectUpdateMappingProfile());
+                mc.AddProfile(new EducationCreateMappingProfile());
+                mc.AddProfile(new EducationUpdateMappingProfile());
+                mc.AddProfile(new SkillsCreateMappingProfile());
+                mc.AddProfile(new SkillsUpdateMappingProfile());
+                mc.AddProfile(new CertificateCreateMappingProfile());
+                mc.AddProfile(new CertificateUpdateMappingProfile());
+                mc.AddProfile(new SocialMediaCreateMappingProfile());
+                mc.AddProfile(new SocialMediaUpdateMappingProfile());
+                mc.AddProfile(new WorkExperienceCreateMappingProfile());
+                mc.AddProfile(new WorkExperienceUpdateMappingProfile());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

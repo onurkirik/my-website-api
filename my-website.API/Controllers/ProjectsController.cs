@@ -59,7 +59,7 @@ namespace my_website.API.Controllers
 
         [HttpDelete]
         [Route("{id:guid}")]
-        public async Task<IActionResult> Delete([FromBody] Guid id)
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             var result = await _projectWriteRepository.RemoveAsync(id);
             return Ok(new
