@@ -9,6 +9,7 @@ namespace my_website.Domain.Entities
 {
     public class SocialMedia : BaseEntity
     {
+        public string Name { get; set; }
         public string Link { get; set; }
 
         //Navigation Properties

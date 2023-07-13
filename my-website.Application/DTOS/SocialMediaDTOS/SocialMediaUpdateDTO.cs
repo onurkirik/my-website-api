@@ -11,6 +11,7 @@ namespace my_website.Application.DTOS.SocialMediaDTOS
     public class SocialMediaUpdateDTO
     {
         public Guid Id { get; set; }
+        public string Name { get; set; }
         public string Link { get; set; }
         public Guid UserId { get; set; }
     }
