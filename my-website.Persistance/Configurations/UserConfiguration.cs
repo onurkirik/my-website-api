@@ -44,9 +44,9 @@ namespace my_website.Persistance.Configurations
                    .WithOne(we => we.User)
                    .HasForeignKey(we => we.UserId);
 
-            builder.HasOne(u => u.Education)
+            builder.HasMany(u => u.Educations)
                    .WithOne(e => e.User)
-                   .HasForeignKey<Education>(e => e.UserId);
+                   .HasForeignKey(e => e.UserId);
         }
     }
 }

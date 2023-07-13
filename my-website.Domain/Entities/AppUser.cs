@@ -26,6 +26,6 @@ namespace my_website.Domain.Entities
         public ICollection<Project> Projects { get; set; }
         public ICollection<Skills> Skills { get; set; }
         public ICollection<WorkExperience> Experiences { get; set; }
-        public Education Education { get; set; }
+        public ICollection<Education> Educations { get; set; }
     }
 }

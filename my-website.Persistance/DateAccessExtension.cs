@@ -6,6 +6,9 @@ using my_website.Application.Repositories.CategoryRepository;
 using my_website.Application.Repositories.CertificateRepository;
 using my_website.Application.Repositories.EducationRepository;
 using my_website.Application.Repositories.ProjectRepository;
+using my_website.Application.Repositories.SkillsRepository;
+using my_website.Application.Repositories.SocialMediaRepository;
+using my_website.Application.Repositories.WorkExperienceRepository;
 using my_website.Domain.Entities;
 using my_website.Persistance.Context;
 using my_website.Persistance.Repositories;
@@ -14,6 +17,9 @@ using my_website.Persistance.Repositories.CategoryRepository;
 using my_website.Persistance.Repositories.CertificateRepository;
 using my_website.Persistance.Repositories.EducationRepository;
 using my_website.Persistance.Repositories.ProjectRepository;
+using my_website.Persistance.Repositories.SkillsRepository;
+using my_website.Persistance.Repositories.SocialMediaRepository;
+using my_website.Persistance.Repositories.WorkExperienceRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +44,12 @@ namespace my_website.Persistance
             services.AddScoped<IEducationWriteRepository, EducationWriteRepository>();
             services.AddScoped<IProjectReadRepository, ProjectReadRepository>();
             services.AddScoped<IProjectWriteRepository, ProjectWriteRepository>();
+            services.AddScoped<IWorkExperienceReadRepository, WorkExperienceReadRepository>();
+            services.AddScoped<IWorkExperienceWriteRepository, WorkExperienceWriteRepository>();
+            services.AddScoped<ISkillReadRepository, SkillsReadRepository>();
+            services.AddScoped<ISkillWriteRepository, SkillsWriteRepository>();
+            services.AddScoped<ISocialMediaReadRepository, SocialMediaReadRepository>();
+            services.AddScoped<ISocialMediaWriteRepository, SocialMediaWriteRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         }
