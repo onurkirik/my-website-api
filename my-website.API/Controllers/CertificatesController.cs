@@ -4,19 +4,18 @@ using Microsoft.AspNetCore.Mvc;
 using my_website.Application.DTOS.CertificateDTOS;
 using my_website.Application.Repositories.CertificateRepository;
 using my_website.Domain.Entities;
-using System.Security.Policy;
 
 namespace my_website.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CertificateContoller : ControllerBase
+    public class CertificatesController : ControllerBase
     {
         private readonly ICertificateReadRepository _certificateReadRepository;
         private readonly ICertificateWriteRepository _certificateWriteRepository;
         private readonly IMapper _mapper;
 
-        public CertificateContoller(ICertificateReadRepository certificateReadRepository, ICertificateWriteRepository certificateWriteRepository, IMapper mapper)
+        public CertificatesController(ICertificateReadRepository certificateReadRepository, ICertificateWriteRepository certificateWriteRepository, IMapper mapper)
         {
             _certificateReadRepository = certificateReadRepository;
             _certificateWriteRepository = certificateWriteRepository;
@@ -60,6 +59,5 @@ namespace my_website.API.Controllers
                 id
             });
         }
-
     }
 }
