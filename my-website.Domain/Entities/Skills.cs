@@ -10,6 +10,7 @@ namespace my_website.Domain.Entities
     public class Skills : BaseEntity
     {
         public string Name { get; set; }
+        public string? ImageUrl { get; set; }
         public int Rate { get; set; }
 
         //Navigation Properties
