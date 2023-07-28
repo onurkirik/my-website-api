@@ -17,7 +17,6 @@ namespace my_website.Domain.Entities
         public string Adress { get; set; }
         public Gender Gender { get; set; }
         public DateTime BirthDate { get; set; }
-        public string? ImageUrl { get; set; }
 
         //Navigation Property
         public Guid? ArticleId { get; set; }

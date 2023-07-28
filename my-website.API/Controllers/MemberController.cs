@@ -12,10 +12,11 @@ namespace my_website.API.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
+        public static IWebHostEnvironment _webHostEnvironment;
 
-        public MemberController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public MemberController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IWebHostEnvironment webHostEnvironment)
         {
-            _userManager = userManager; _signInManager = signInManager;
+            _userManager = userManager; _signInManager = signInManager; _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpPost]
@@ -49,13 +50,6 @@ namespace my_website.API.Controllers
             }
 
             return BadRequest();
-        }
-
-        [HttpPost]
-        [Route("{id:guid}/upload-image")]
-        public async Task<IActionResult> UploadMemberImage([FromRoute] Guid id, IFormFile profileImage)
-        {
-            return Ok();
         }
 
     }
