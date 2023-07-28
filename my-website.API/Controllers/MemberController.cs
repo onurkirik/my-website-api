@@ -50,5 +50,13 @@ namespace my_website.API.Controllers
 
             return BadRequest();
         }
+
+        [HttpPost]
+        [Route("{id:guid}/upload-image")]
+        public async Task<IActionResult> UploadMemberImage([FromRoute] Guid id, IFormFile profileImage)
+        {
+            return Ok();
+        }
+
     }
 }
